@@ -1,3 +1,5 @@
+package animal;
+
 import com.example.Animal;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -7,12 +9,12 @@ import static org.junit.Assert.assertEquals;
 
 @RunWith(Parameterized.class)
 public class AnimalParametrizedTest {
-    private final String animalKind;
-    private final List<String> expected;
+    private final String ANIMAL_KIND;
+    private final List<String> EXPECTED;
 
     public AnimalParametrizedTest(String animalKind, List<String> expected) {
-        this.animalKind = animalKind;
-        this.expected = expected;
+        this.ANIMAL_KIND = animalKind;
+        this.EXPECTED = expected;
     }
 
     @Parameterized.Parameters(name ="Список еды.тестовые данные:{0},{1}")
@@ -21,9 +23,9 @@ public class AnimalParametrizedTest {
         };
     }
     @Test
-    public void getFood() throws Exception {
+    public void getFoodTest() throws Exception {
         Animal animal = new Animal();
-        List<String> stringList = animal.getFood(animalKind);
-        assertEquals(expected, stringList);
+        List<String> stringList = animal.getFood(ANIMAL_KIND);
+        assertEquals(EXPECTED, stringList);
     }
 }
